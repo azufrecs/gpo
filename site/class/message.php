@@ -1,0 +1,5 @@
+<?php	
+	$MESSAGE_ADD 				= "<div class='toast mw-100' data-autohide='true'><div class='toast-header bg-success'><span class='mr-auto text-white'><i class='fas fa-5x fa-check-square'></i></span><span class='display-4 text-white'>¡Correcto!</span></div><div class='toast-body bg-light'><h2 class='p-5 text-success'>Se guardo el Paciente correctamente</h2></div></div>";
+	$MESSAGE_ERROR 				= "<div class='toast mw-100' data-autohide='true'><div class='toast-header bg-danger'><span class='mr-auto text-white'><i class='fas fa-5x fa-window-close'></i></span><span class='display-4 text-white'>¡Error!</span></div><div class='toast-body bg-light'><h2 class='p-5 text-danger'>No fue posible guardar el Paciente</h2></div></div>";
+	$MESSAGE_EXIST 				= "<div class='toast mw-100' data-autohide='true'><div class='toast-header bg-warning'><span class='mr-auto text-white'><i class='fas fa-5x fa-exclamation-triangle'></i></span><span class='display-4 text-white'>¡Error!</span></div><div class='toast-body bg-light'><h2 class='p-5 text-warning'>El Paciente que intenta agregar ya existe</h2></div></div>";
+?>
