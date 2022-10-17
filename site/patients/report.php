@@ -5,7 +5,6 @@
 	require_once '../class/PHPExcel/IOFactory.php';
 	setlocale (LC_TIME,"spanish");
 	header('Content-Type:text/html; charset=UTF-8');
-    $LINK_REPORTE = "";
     
 	//OBTENIENDO VALORES 
 	//INICIO DE CONSULTAS PARA TOTALES DE PACIENTES Y PORCIENTES ACUMULADOS Y ANUALES
@@ -277,8 +276,26 @@
 		// ESCRIBO TODO EN EL EXCEL
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 		$objWriter->save("exports/" . $NOMBRE_REPORTE);
-		$LINK_REPORTE = "<a class='btn btn-success btn-block' href='exports/" . $NOMBRE_REPORTE . "' role='button'><i class='fas fa-file-excel'></i>&nbsp;&nbsp;&nbsp;Descargar Reporte</a>";
-		
+		//$LINK_REPORTE = "<a class='btn btn-success btn-block' href='exports/" . $NOMBRE_REPORTE . "' role='button'><i class='fas fa-file-excel'></i>&nbsp;&nbsp;&nbsp;Descargar Reporte</a>";
+
+	// EXPORTANDO EL FICHERO CREADO
+	if (file_exists("exports/" . $NOMBRE_REPORTE)) {
+		header('Content-Description: File Transfer');
+		header('Content-Type: text/csv');
+		header('Content-Disposition: attachment; filename=' . basename("exports/" . $NOMBRE_REPORTE));
+		header('Content-Transfer-Encoding: binary');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate');
+		header('Pragma: public');
+		header('Content-Length: ' . filesize("exports/" . $NOMBRE_REPORTE));
+		ob_clean();
+		flush();
+		readfile("exports/" . $NOMBRE_REPORTE);
+		exit;
+	} else {
+		echo $MESSAGE_ERROR_ARCHIVO_NO_DISPONIBLE;
+	}
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 	// FINALIZO EL PROCESO DE GENERACION DEL PARTE DIARIO ///////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////////////////////////////////

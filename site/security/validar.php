@@ -1,14 +1,15 @@
 <?php 
-	error_reporting(0);		
+	include ("../conn/conn.php");
+	//error_reporting(0);		
 	
 	$PERMISO = "NO";
 	
 	// ASIGNO VARIABLES PARA ACCESAR AL SERVIDOR LDAP
 	$host = "192.168.40.2";
-	$userr = $_POST['txtUsername'];
-	$user = $_POST['txtUsername'] . "@onco.cmw.sld.cu";
-	$pswd = $_POST['txtPassword'];
-	$ad = ldap_connect($host) or die("No se ha podido conectar al Controlador de Dominio SMC");
+	$userr = $_POST['txtLoginUsername'];
+	$user = $_POST['txtLoginUsername'] . "@onco.cmw.sld.cu";
+	$pswd = $_POST['txtPassUsername'];
+	$ad = ldap_connect($host) or die("No se ha podido conectar al Controlador de Dominio ONCO");
 	
 	// ESPECIFICO LA VERSIÓN DEL PROTOCOLO LDAP
 	ldap_set_option($ad, LDAP_OPT_PROTOCOL_VERSION, 3) or die ("Imposible asignar el Protocolo LDAP");
@@ -43,47 +44,47 @@
 			$PERMISO = "NO";			
 			if (isset($entries[$i]["memberof"][0]))
 			{
-				$GRUPO0 = substr($entries[$i]["memberof"][0],3, strpos($entries[$i]["memberof"][0], ",") - strlen($entries[$i]["memberof"][0]));				
+				$GRUPO0 = substr($entries[$i]["memberof"][0],3, strlen($entries[$i]["memberof"][0])-43);				
 			}
 
 			if (isset($entries[$i]["memberof"][1]))
 			{
-				$GRUPO1 = substr($entries[$i]["memberof"][1],3, strpos($entries[$i]["memberof"][1], ",") - strlen($entries[$i]["memberof"][1]));				
+				$GRUPO1 = substr($entries[$i]["memberof"][1],3, strlen($entries[$i]["memberof"][1])-43);
 			}
 			
 			if (isset($entries[$i]["memberof"][2]))
 			{
-				$GRUPO2 = substr($entries[$i]["memberof"][2],3, strpos($entries[$i]["memberof"][2], ",") - strlen($entries[$i]["memberof"][2]));				
+				$GRUPO2 = substr($entries[$i]["memberof"][2],3, strlen($entries[$i]["memberof"][2])-43);
 			}
 			
 			if (isset($entries[$i]["memberof"][3]))
 			{
-				$GRUPO3 = substr($entries[$i]["memberof"][3],3, strpos($entries[$i]["memberof"][3], ",") - strlen($entries[$i]["memberof"][3]));				
+				$GRUPO3 = substr($entries[$i]["memberof"][3],3, strlen($entries[$i]["memberof"][3])-43);
 			}
 			
 			if (isset($entries[$i]["memberof"][4]))
 			{
-				$GRUPO4 = substr($entries[$i]["memberof"][4],3, strpos($entries[$i]["memberof"][4], ",") - strlen($entries[$i]["memberof"][4]));				
+				$GRUPO4 = substr($entries[$i]["memberof"][4],3, strlen($entries[$i]["memberof"][4])-43);
 			}
 			
 			if (isset($entries[$i]["memberof"][5]))
 			{
-				$GRUPO5 = substr($entries[$i]["memberof"][5],3, strpos($entries[$i]["memberof"][5], ",") - strlen($entries[$i]["memberof"][5]));				
+				$GRUPO5 = substr($entries[$i]["memberof"][5],3, strlen($entries[$i]["memberof"][5])-43);
 			}
 			
 			if (isset($entries[$i]["memberof"][6]))
 			{
-				$GRUPO6 = substr($entries[$i]["memberof"][6],3, strpos($entries[$i]["memberof"][6], ",") - strlen($entries[$i]["memberof"][6]));				
+				$GRUPO6 = substr($entries[$i]["memberof"][6],3, strlen($entries[$i]["memberof"][6])-43);
 			}
 			
 			if (isset($entries[$i]["memberof"][7]))
 			{
-				$GRUPO7 = substr($entries[$i]["memberof"][7],3, strpos($entries[$i]["memberof"][7], ",") - strlen($entries[$i]["memberof"][7]));				
+				$GRUPO7 = substr($entries[$i]["memberof"][7],3, strlen($entries[$i]["memberof"][7])-43);
 			}
 			
 			if (isset($entries[$i]["memberof"][8]))
 			{
-				$GRUPO8 = substr($entries[$i]["memberof"][8],3, strpos($entries[$i]["memberof"][8], ",") - strlen($entries[$i]["memberof"][8]));				
+				$GRUPO8 = substr($entries[$i]["memberof"][8],3, strlen($entries[$i]["memberof"][8])-43);
 			}
 		}
 
@@ -91,7 +92,7 @@
 		{
 			$PERMISO = "SI";
 		}	
-		
+
 		if($PERMISO == "NO" || strlen($PERMISO) == 0)
 		{
 			$_SERVER = array();

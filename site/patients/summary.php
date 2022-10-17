@@ -23,7 +23,7 @@
 	}
 	
 	//error_reporting(0);
-	$LINK_REPORTE = "<button type='submit' name='generar_reporte' class='btn btn-success btn-block'>Preparar Reporte</button>";
+	$LINK_REPORTE = "<button type='submit' name='generar_reporte' class='btn btn-success btn-block'>Generar Reporte</button>";
 	
 	//INICIO DE CONFIGURACION DEL MENU CON BOTONES
 		$BOTONES_NAVEGACION = "
