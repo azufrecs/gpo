@@ -356,17 +356,17 @@
 								<div class="form-row ml-0 mr-0">
 									<div class="col-md-4 input-group input-group">
 										<div class="input-group-prepend"><div class="input-group-text text-success">Nombres(s)</div></div>
-										<input name="txtNombre" class="form-control input" placeholder="Nombre(s)" autocomplete="off" maxlength="25" required>
+										<input name="txtNombre" class="form-control input" placeholder="Nombre(s)" maxlength="25" required>
 									</div>
 
 									<div class="col-md-4 input-group input-group">
 										<div class="input-group-prepend"><div class="input-group-text text-success">1er Apellido</div></div>
-										<input name="txtApellido1" class="form-control input" placeholder="1er Apellido" autocomplete="off" maxlength="25" required>
+										<input name="txtApellido1" class="form-control input" placeholder="1er Apellido" maxlength="25" required>
 									</div>
 
 									<div class="col-md-4 input-group input-group">
 										<div class="input-group-prepend"><div class="input-group-text text-success">2do Apellido</div></div>
-										<input name="txtApellido2" class="form-control input" placeholder="2do Apellido" autocomplete="off" maxlength="25" required>
+										<input name="txtApellido2" class="form-control input" placeholder="2do Apellido" maxlength="25" required>
 									</div>	
 								</div>
 								
